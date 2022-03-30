@@ -1,0 +1,52 @@
+<div class="col-12">
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-vcenter table-mobile-md card-table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Role</th>
+            <th>Account Status</th>
+            <th>Username</th>
+            <th>Last Signed In</th>
+            <th class="w-1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>  
+              <td data-label="Name">
+                <div class="d-flex py-1 align-items-center">
+                  <div class="flex-fill">
+                    <div class="font-weight-medium"><%= full_name(user) %></div>
+                    <div class="text-muted"><a href="#" class="text-reset"><%= user.email %></a></div>
+                  </div>
+                </div>
+              </td>
+
+              <td class="text-muted" data-label="Role"><%= User.roles[user.role] %></td>
+              <td><%= user.account_status.capitalize%></td>
+              <td><%= user.username %></td>
+              <td><%= user.last_sign_in_at %></td>
+              
+              <td>
+                <div class="btn-list flex-nowrap">
+                  <%= link_to "Edit", edit_user_path(user), class: "btn btn-white" %>
+                  <%= link_to 'Reset Password', reset_password_user_path(user), class: "btn btn-primary", action: :reset_password, 
+                    data: { confirm: "Are you sure you want to reset this user's password?" } %>                
+                  
+                 
+                  <%# if (admin? or super_admin?) and user.locked_at != nil %>
+                    <%# link_to "Unlock", unlock_account_user_path(user), class: "btn btn-primary", action: :unlock_account, :method => :patch,
+                      data: { confirm: "Are you sure you want to unlock this account?" } %>
+                  <%# end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+
+<%= link_to 'New User', new_user_path %>

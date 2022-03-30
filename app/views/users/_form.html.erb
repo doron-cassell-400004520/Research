@@ -1,0 +1,30 @@
+<%= simple_form_for(@user) do |f| %>
+  
+  <%= render 'shared/errors', obj: @user %>
+  <div class="form-inputs">
+
+    <div class="mb-3">
+      <%= f.input :first_name, :label_html => { class: "form-label" }, :input_html => { placeholder: "Enter first name" } %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :middle_name, :label_html => { class: "form-label" }, :input_html => { placeholder: "Enter middle name" } %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :last_name, :label_html => { class: "form-label" }, :input_html => { placeholder: "Enter last name" } %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.input :email, :label_html => { class: "form-label" }, :input_html => { placeholder: "Enter email address" } %>
+    </div>
+      <h3>User privileges</h3>
+      <div class="mb-3">
+        <%= f.input :role, :prompt     => "Please select a user role", :label_html => { class: "form-label" }, :collection => User::roles.values %>
+      </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

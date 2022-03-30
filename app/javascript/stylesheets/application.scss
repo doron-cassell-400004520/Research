@@ -1,0 +1,20 @@
+@import "@tabler/core";
+ 
+.dataTables_length, .dataTables_filter{
+    margin-bottom: 1em;
+}
+.dataTables_length label, .dataTables_filter label{
+    display: inline-flex !important;
+}
+.dataTables_length select {
+    margin-left: 1em;
+    margin-right: 1em;
+    width: 100%;
+}
+.dataTables_filter input {
+    margin-left: 1em;
+    width: 100%;
+}
+.table-row {
+    cursor: pointer;
+}
