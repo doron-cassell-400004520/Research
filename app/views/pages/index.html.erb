@@ -1,11 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container-xl row">
-  <div>
-    <%= render 'form' %>
-  </div>
-  <div>
-    
+<div class="container-xl">
+  <div class="row">
+    <div class="col-6">
+      <%= render 'form' %>
+      <p class="text-muted text-center m-1">Start chatbot interactions by clicking the button with the mic or typing into the chatbox</p>
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <div class="ribbon ribbon-top bg-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-help" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="12" cy="12" r="9"></circle>
+            <line x1="12" y1="17" x2="12" y2="17.01"></line>
+            <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4"></path>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title text-primary">User Tips</h3>
+          <p class="text-muted">
+            <b>Start by saying hello or asking any of the below questions.</b><br>
+            Examples:<br>
+            What is covid-19?<br>
+            What do I do if I have covid-19?<br>
+            What are the symptoms of covid-19?<br>
+            Where can I get tested for covid-19?<br>
+            How is the coronavirus spread?<br>
+            How do I protect myself against covid-19?<br>
+            How many covid-19 cases are there in Barbados?<br>
+            How long does covid-19 stay in your system?<br>
+            What vaccines are available to counter covid-19?//revisit<br>
+            What are the side effects of the covid-19 vaccines?<br>
+            Where can I get vaccinated?<br>
+            Why do I need the covid-19 vaccine?<br>
+            Who should take the covid-19 vaccine?<br>
+            Who should not take the covid-19 vaccine?<br>
+            When am I fully vaccinated?//revisit<br>
+            How long does the vaccine protect me against covid-19?
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
