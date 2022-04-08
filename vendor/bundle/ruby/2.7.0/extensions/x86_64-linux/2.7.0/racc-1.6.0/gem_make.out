@@ -1,0 +1,17 @@
+current directory: /mnt/d/University Courses/Year 3/Semester II/Research Project/app/vendor/bundle/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+/home/doron/.rbenv/versions/2.7.3/bin/ruby -I /home/doron/.rbenv/versions/2.7.3/lib/ruby/2.7.0 -r ./siteconf20220407-2496-1cfkhvi.rb extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /mnt/d/University Courses/Year 3/Semester II/Research Project/app/vendor/bundle/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /mnt/d/University Courses/Year 3/Semester II/Research Project/app/vendor/bundle/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /mnt/d/University Courses/Year 3/Semester II/Research Project/app/vendor/bundle/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cparse.so ./.gem.20220407-2496-1nhx3g7/racc
