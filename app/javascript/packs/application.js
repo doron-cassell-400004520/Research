@@ -115,14 +115,14 @@ function quantityResponse(){
 
 function durationResponse(){
   var response =  new SpeechSynthesisUtterance();
-  response.text = "Recovery of replication-competent virus between 10 and 20 days after symptom onset has been reported in some adults with severe covid-19, some of these people were immunocompromised";
+  response.text = "Recovery of replication-competent virus between 10 and 20 days after symptom onset has been reported in some adults with severe covid-19, some of these people were immunocompromised.";
   window.speechSynthesis.speak(response);
   document.getElementById("request").value = "";
 }
 
 function availableResponse(){
   var response =  new SpeechSynthesisUtterance();
-  response.text = "The available vaccines in Barbados are BioNTech - Pfizer vaccine, Johnson & Johnson vaccine, Oxford - AstraZeneca vaccine and Sinopharm BBIBP vaccine. Would you like to know where you can get these vaccines?s";
+  response.text = "The available vaccines in Barbados are BioNTech Pfizer vaccine, Johnson & Johnson vaccine, Oxford AstraZeneca vaccine and Sinopharm BBIBP vaccine. Would you like to know where you can get these vaccines?";
   window.speechSynthesis.speak(response);
   sessionStorage.setItem('question', 2);
   document.getElementById("request").value = "";
@@ -145,7 +145,7 @@ function vaccineLocationResponse(){
 
 function vaccineReasonResponse(){
   var response =  new SpeechSynthesisUtterance();
-  response.text = "Covid-19 vaccination significantly lowers your risk of severe illness, hospitalization, and death if you get infected. Compared to people who are up to date with their Covid-19 vaccinations, unvaccinated people are more likely to get Covid-19, much more likely to be hospitalized with Covid-19, and much more likely to die from Covid-19";
+  response.text = "Covid-19 vaccination significantly lowers your risk of severe illness, hospitalization, and death if you get infected. Compared to people who are up to date with their Covid-19 vaccinations, unvaccinated people are more likely to get Covid-19, much more likely to be hospitalized with Covid-19, and much more likely to die from Covid-19.";
   window.speechSynthesis.speak(response);
   document.getElementById("request").value = "";
 }
@@ -186,8 +186,9 @@ function errorResponse(){
 
 function respond(message){
   let regex1 = /(how\s[\w\s]+coronavirus\sspread|how\s[\w\s]+covid-19\sspread)/;
-  let regex2 = /where\s[\w\s]+vaccinated/;
-  let regex3 = /when\s[\w\s]+fully\svaccinated/;
+  let regex2 = /(what\s[\w\s]+vaccines\s[\w\s]+available|what\s[\w\s]+available\s[\w\s]+vaccines|what\svaccines\s[\w\s]+available)/;
+  let regex3 = /where\s[\w\s]+vaccinated/;
+  let regex4 = /when\s[\w\s]+fully\svaccinated/;
   let msg = message.toLowerCase();
   let question = ((sessionStorage.getItem('question') != null) ? sessionStorage.getItem('question') : 0);
   if(question == 0){
@@ -209,11 +210,11 @@ function respond(message){
       quantityResponse();
     }else if(msg.includes("how long does covid-19 stay in your system") || msg.includes("how long does the coronavirus stay in your system") || msg.includes("how long does covid-19 remain in your system") || msg.includes("how long does the coronavirus remain in your system")){
       durationResponse();
-    }else if(msg.includes("what are the available vaccines") || msg.includes("what vaccines are available")){
+    }else if(regex2.test(msg)){
       availableResponse();
     }else if(msg.includes("what are the side effects of the covid-19 vaccines") || msg.includes("what are the side effects of the coronavirus vaccines")){
       sideEffectsResponse();
-    }else if(regex2.test(msg)){
+    }else if(regex3.test(msg)){
       vaccineLocationResponse();
     }else if(msg.includes("why do i need the covid-19 vaccine") || msg.includes("why should i get the covid-19 vaccine") || msg.includes("why do i need the coronavirus vaccine") || msg.includes("why should i get the coronavirus vaccine")){
       vaccineReasonResponse();
@@ -221,7 +222,7 @@ function respond(message){
       vaccineEligibleResponse();
     }else if(msg.includes("who should not take the covid-19 vaccine") || msg.includes("who should not get the covid-19 vaccine") || msg.includes("who should not recieve the covid-19 vaccine") || msg.includes("who should not take the coronavirus vaccine") || msg.includes("who should not get the coronavirus vaccine") || msg.includes("who should not receive the coronavirus vaccine")){
       vaccineIneligibleResponse();
-    }else if(regex3.test(msg)){
+    }else if(regex4.test(msg)){
       vaccineCompletionResponse();
     }else if(msg.includes("how long does the vaccine protect") || msg.includes("how long does the vaccine last")){
       vaccineDurationResponse();
