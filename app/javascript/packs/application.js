@@ -230,10 +230,10 @@ function respond(message){
     }else if( msg == "stop"){
       window.speechSynthesis.cancel();
       document.getElementById("request").value = "";
-    }else if( msg == "thank"){
+    }else if( msg.includes("thank")){
       window.speechSynthesis.speak("Your welcome! Feel free to ask me another question.");
       document.getElementById("request").value = "";
-    }else if( msg == "bye"){
+    }else if( msg.includes("bye")){
       window.speechSynthesis.speak("Have a nice day! To assist my creator can you please fill out my evaluation form by clicking the button label form on the right of your screen.");
       document.getElementById("request").value = "";
     }else if( msg == ""){
