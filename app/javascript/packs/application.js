@@ -27,6 +27,7 @@ $(document).on('turbolinks:load',function() {
         var recognition = new window.webkitSpeechRecognition
         recognition.onstart = () => { 
           console.log('Voice recognition started. Try speaking into the microphone.')
+          window.speechSynthesis.cancel()
         }
         recognition.onresult = function(event) {
           var transcript = event.results[0][0].transcript
