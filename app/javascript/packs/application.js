@@ -231,10 +231,14 @@ function respond(message){
       window.speechSynthesis.cancel();
       document.getElementById("request").value = "";
     }else if( msg.includes("thank")){
-      window.speechSynthesis.speak("Your welcome! Feel free to ask me another question.");
+      var response =  new SpeechSynthesisUtterance();
+      response.text = "Your welcome! Feel free to ask me another question.";
+      window.speechSynthesis.speak(response);
       document.getElementById("request").value = "";
     }else if( msg.includes("bye")){
-      window.speechSynthesis.speak("Have a nice day! To assist my creator can you please fill out my evaluation form by clicking the button label form on the right of your screen.");
+      var response =  new SpeechSynthesisUtterance();
+      response.text = "Have a nice day! To assist my creator can you please fill out my evaluation form by clicking the button label form on the right of your screen.";
+      window.speechSynthesis.speak(response);
       document.getElementById("request").value = "";
     }else if( msg == ""){
       console.log("No input");
