@@ -229,6 +229,13 @@ function respond(message){
       vaccineDurationResponse();
     }else if( msg == "stop"){
       window.speechSynthesis.cancel();
+      document.getElementById("request").value = "";
+    }else if( msg == "thank"){
+      window.speechSynthesis.speak("Your welcome! Feel free to ask me another question.");
+      document.getElementById("request").value = "";
+    }else if( msg == "bye"){
+      window.speechSynthesis.speak("Have a nice day! To assist my creator can you please fill out my evaluation form by clicking the button label form on the right of your screen.");
+      document.getElementById("request").value = "";
     }else if( msg == ""){
       console.log("No input");
     }else{
