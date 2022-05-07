@@ -227,6 +227,8 @@ function respond(message){
       vaccineCompletionResponse();
     }else if(msg.includes("how long does the vaccine protect") || msg.includes("how long does the vaccine last")){
       vaccineDurationResponse();
+    }else if( msg == "stop"){
+      window.speechSynthesis.cancel();
     }else if( msg == ""){
       console.log("No input");
     }else{
